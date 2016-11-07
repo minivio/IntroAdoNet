@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "TestAjax";
+}
+
+<h2 id="titre">TestAjax</h2>
+<input type="button" value="Dis coucou" onClick="CoucouFn()"/>
+<img id="affich" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    //$(document).ready(function(){
+    function CoucouFn(){
+            $.ajax({
+                url: "../Ajax/Index"
+            })
+            .done(function(data){
+                $('#titre').text(data);
+            });
+
+            $.ajax({
+                url: "../Ajax/Img"
+            }).done(function (data) {
+                $('#affich').attr('src', data);
+            });
+    }
+    //});
+
+</script>
+
